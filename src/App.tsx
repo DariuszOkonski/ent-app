@@ -1,16 +1,12 @@
 import './App.css';
-import Button from './components/Button/Button';
+import Like from './components/Like';
 
 const cities = ['New York', 'Los Angeles', 'San Francisco'];
 
 function App() {
-  const handleOnSelect = (item: string) => {
-    console.log(item);
-  };
-
   return (
     <div>
-      <Button onClickCallback={() => console.log('click me')}>My Button</Button>
+      <Like onClick={() => console.log('clicked')} />
     </div>
   );
 }
