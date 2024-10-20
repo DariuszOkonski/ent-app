@@ -1,5 +1,5 @@
 import './App.css';
-import ListGroup from './components/ListGroup';
+import Button from './components/Button/Button';
 
 const cities = ['New York', 'Los Angeles', 'San Francisco'];
 
@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div>
-      <ListGroup heading='Miami' items={cities} onSelectItem={handleOnSelect} />
+      <Button onClickCallback={() => console.log('click me')}>My Button</Button>
     </div>
   );
 }
