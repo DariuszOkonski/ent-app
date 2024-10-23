@@ -1,14 +1,9 @@
+import { useState } from 'react';
 import './App.css';
-import Like from './components/Like';
-
-const cities = ['New York', 'Los Angeles', 'San Francisco'];
+import produce from 'immer';
 
 function App() {
-  return (
-    <div>
-      <Like onClick={() => console.log('clicked')} />
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;
