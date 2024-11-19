@@ -3,6 +3,7 @@ import './App.css';
 import ExpenseFilter from './expense-tracker/components/ExpenseFilter';
 import ExpenseForm from './expense-tracker/components/ExpenseForm';
 import ExpenseList from './expense-tracker/components/ExpenseList';
+import ProductList from './expense-tracker/components/ProductList';
 
 function AppTemp() {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -40,22 +41,19 @@ function AppTemp() {
 }
 
 function App() {
-  const ref = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    // side effect
-    if (ref.current) {
-      ref.current.focus();
-    }
-  });
-
-  useEffect(() => {
-    document.title = 'My App';
-  });
+  const [category, setCategory] = useState('');
 
   return (
     <div>
-      <input ref={ref} type='text' className='form-control' />
+      <select
+        className='form-select'
+        onChange={(event) => setCategory(event.target.value)}
+      >
+        <option value=''></option>
+        <option value='Clothing'>Clothing</option>
+        <option value='Household'>Household</option>
+      </select>
+      <ProductList category={category} />
     </div>
   );
 }
