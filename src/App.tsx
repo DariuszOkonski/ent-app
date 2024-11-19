@@ -12,10 +12,20 @@ function App() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    const controller = new AbortController();
+
     axios
-      .get<User[]>('https://jsonplaceholder.typicode.com/users')
+      .get<User[]>('https://jsonplaceholder.typicode.com/users', {
+        signal: controller.signal,
+      })
       .then((res) => setUsers(res.data))
-      .catch((err) => setError(err.message));
+      .catch((err) => {
+        if (err instanceof AbortController) return;
+
+        setError(err.message);
+      });
+
+    return () => controller.abort();
   }, []);
 
   return (
